@@ -1,4 +1,11 @@
-FROM ubuntu:latest
-LABEL authors="lgana"
+FROM maven:3.9.9-eclipse-temurin-17
 
-ENTRYPOINT ["top", "-b"]
+WORKDIR /app
+
+COPY . .
+
+RUN mvn clean package -DskipTests
+
+EXPOSE 8080
+
+CMD ["java", "-jar", "target/meteo-0.0.1-SNAPSHOT.jar"]
