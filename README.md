@@ -61,6 +61,24 @@ Com a aplicacao rodando localmente:
 
 `http://localhost:8080/swagger-ui.html`
 
+
+swagger no render:
+
+`https://meteo-final-1.onrender.com/swagger-ui/index.html`
+
+## Render 
+link do deploy
+
+`https://meteo-final-1.onrender.com`
+
+alguns exemplos:
+
+`https://meteo-final-1.onrender.com/usuarios`
+
+`https://meteo-final-1.onrender.com/regioes`
+
+
+
 ## Banco de dados
 
 O projeto usa Oracle. Configure as variaveis:
