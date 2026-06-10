@@ -81,6 +81,10 @@ alguns exemplos:
 
 `https://youtu.be/Swnc4SbstLE`
 
+## Pitch
+
+
+
 ## Banco de dados
 
 O projeto usa Oracle. Configure as variaveis:
@@ -89,3 +93,14 @@ O projeto usa Oracle. Configure as variaveis:
 - `DB_USERNAME`
 - `DB_PASSWORD`
 
+## RMS E NOMES
+
+Ana Carolina Pereira Fontes | 562145
+
+João Victor Nascimento Adão | 563409
+
+Johnny Dias Mathias Junior | 566516
+
+Luisa Ganasevici de Abreu | 563403
+
+Matheus Moya de Oliveira | 562822
