@@ -21,16 +21,14 @@ import br.com.fiap.meteo.api.dto.request.AppUserRequest;
 import br.com.fiap.meteo.api.dto.response.AppUserResponse;
 import br.com.fiap.meteo.domain.service.AppUserService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/usuarios")
+@RequiredArgsConstructor
 public class AppUserController {
 
     private final AppUserService service;
-
-    public AppUserController(AppUserService service) {
-        this.service = service;
-    }
 
     @GetMapping
     public ResponseEntity<Page<AppUserResponse>> findAll(

@@ -1,14 +1,9 @@
 package br.com.fiap.meteo.domain.model;
 
 import java.time.LocalDateTime;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.Table;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,8 +27,14 @@ public class AppUser {
     @Column(name = "SENHA", nullable = false, length = 100)
     private String senha;
 
+    public enum TipoUsuario {
+        CLIENT, ADMIN
+    }
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "TIPO_USUARIO", nullable = false, length = 30)
-    private String tipoUsuario;
+    private TipoUsuario tipoUsuario;
+
 
     @Column(name = "ATIVO")
     private String ativo;
@@ -50,7 +51,7 @@ public class AppUser {
             ativo = "S";
         }
         if (tipoUsuario == null) {
-            tipoUsuario = "USER";
+            tipoUsuario.CLIENT;
         }
     }
 }

@@ -21,16 +21,14 @@ import br.com.fiap.meteo.api.dto.request.EstadoRequest;
 import br.com.fiap.meteo.api.dto.response.EstadoResponse;
 import br.com.fiap.meteo.domain.service.EstadoService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/estados")
+@RequiredArgsConstructor
 public class EstadoController {
 
     private final EstadoService service;
-
-    public EstadoController(EstadoService service) {
-        this.service = service;
-    }
 
     @GetMapping
     public ResponseEntity<Page<EstadoResponse>> findAll(

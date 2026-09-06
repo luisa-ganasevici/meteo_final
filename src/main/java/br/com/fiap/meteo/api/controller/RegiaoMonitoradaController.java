@@ -21,16 +21,14 @@ import br.com.fiap.meteo.api.dto.request.RegiaoMonitoradaRequest;
 import br.com.fiap.meteo.api.dto.response.RegiaoMonitoradaResponse;
 import br.com.fiap.meteo.domain.service.RegiaoMonitoradaService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/regioes")
+@RequiredArgsConstructor
 public class RegiaoMonitoradaController {
 
     private final RegiaoMonitoradaService service;
-
-    public RegiaoMonitoradaController(RegiaoMonitoradaService service) {
-        this.service = service;
-    }
 
     @GetMapping
     public ResponseEntity<Page<RegiaoMonitoradaResponse>> findAll(

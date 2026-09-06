@@ -19,16 +19,14 @@ import br.com.fiap.meteo.api.dto.request.ConsultaRiscoRequest;
 import br.com.fiap.meteo.api.dto.response.ConsultaRiscoResponse;
 import br.com.fiap.meteo.domain.service.ConsultaRiscoService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/consultas")
+@RequiredArgsConstructor
 public class ConsultaRiscoController {
 
     private final ConsultaRiscoService service;
-
-    public ConsultaRiscoController(ConsultaRiscoService service) {
-        this.service = service;
-    }
 
     @PostMapping
     public ResponseEntity<EntityModel<ConsultaRiscoResponse>> create(
