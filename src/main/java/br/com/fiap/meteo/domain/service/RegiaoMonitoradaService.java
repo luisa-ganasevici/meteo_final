@@ -13,24 +13,16 @@ import br.com.fiap.meteo.domain.model.Bairro;
 import br.com.fiap.meteo.domain.model.RegiaoMonitorada;
 import br.com.fiap.meteo.domain.repository.BairroRepository;
 import br.com.fiap.meteo.domain.repository.RegiaoMonitoradaRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class RegiaoMonitoradaService {
 
     private final RegiaoMonitoradaRepository repository;
     private final BairroRepository bairroRepository;
     private final RegiaoMonitoradaMapper mapper;
-
-    public RegiaoMonitoradaService(
-            RegiaoMonitoradaRepository repository,
-            BairroRepository bairroRepository,
-            RegiaoMonitoradaMapper mapper
-    ) {
-        this.repository = repository;
-        this.bairroRepository = bairroRepository;
-        this.mapper = mapper;
-    }
 
     public Page<RegiaoMonitoradaResponse> findAll(Pageable pageable) {
         return repository.findAll(pageable).map(mapper::toResponse);

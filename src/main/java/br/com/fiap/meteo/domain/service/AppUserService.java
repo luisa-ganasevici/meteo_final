@@ -11,18 +11,15 @@ import br.com.fiap.meteo.api.mapper.AppUserMapper;
 import br.com.fiap.meteo.core.exception.ResourceNotFoundException;
 import br.com.fiap.meteo.domain.model.AppUser;
 import br.com.fiap.meteo.domain.repository.AppUserRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class AppUserService {
 
     private final AppUserRepository repository;
     private final AppUserMapper mapper;
-
-    public AppUserService(AppUserRepository repository, AppUserMapper mapper) {
-        this.repository = repository;
-        this.mapper = mapper;
-    }
 
     public Page<AppUserResponse> findAll(Pageable pageable) {
         return repository.findAll(pageable).map(mapper::toResponse);

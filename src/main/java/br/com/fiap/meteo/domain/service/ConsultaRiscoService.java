@@ -19,9 +19,11 @@ import br.com.fiap.meteo.domain.model.RegiaoMonitorada;
 import br.com.fiap.meteo.domain.repository.AppUserRepository;
 import br.com.fiap.meteo.domain.repository.ConsultaRiscoRepository;
 import br.com.fiap.meteo.domain.repository.RegiaoMonitoradaRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class ConsultaRiscoService {
 
     private static final double DELTA_LOCALIZACAO = 0.05;
@@ -29,16 +31,6 @@ public class ConsultaRiscoService {
     private final RegiaoMonitoradaRepository regiaoRepository;
     private final AppUserRepository userRepository;
     private final ConsultaRiscoRepository consultaRepository;
-
-    public ConsultaRiscoService(
-            RegiaoMonitoradaRepository regiaoRepository,
-            AppUserRepository userRepository,
-            ConsultaRiscoRepository consultaRepository
-    ) {
-        this.regiaoRepository = regiaoRepository;
-        this.userRepository = userRepository;
-        this.consultaRepository = consultaRepository;
-    }
 
     public ConsultaRiscoResponse create(ConsultaRiscoRequest request) {
         AppUser user = userRepository.findById(request.usuarioId())

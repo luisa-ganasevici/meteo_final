@@ -11,18 +11,15 @@ import br.com.fiap.meteo.api.mapper.LocalizacaoMapper;
 import br.com.fiap.meteo.core.exception.ResourceNotFoundException;
 import br.com.fiap.meteo.domain.model.Pais;
 import br.com.fiap.meteo.domain.repository.PaisRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class PaisService {
 
     private final PaisRepository repository;
     private final LocalizacaoMapper mapper;
-
-    public PaisService(PaisRepository repository, LocalizacaoMapper mapper) {
-        this.repository = repository;
-        this.mapper = mapper;
-    }
 
     public Page<PaisResponse> findAll(Pageable pageable) {
         return repository.findAll(pageable).map(mapper::toResponse);

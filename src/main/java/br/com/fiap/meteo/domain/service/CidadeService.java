@@ -13,20 +13,16 @@ import br.com.fiap.meteo.domain.model.Cidade;
 import br.com.fiap.meteo.domain.model.Estado;
 import br.com.fiap.meteo.domain.repository.CidadeRepository;
 import br.com.fiap.meteo.domain.repository.EstadoRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class CidadeService {
 
     private final CidadeRepository repository;
     private final EstadoRepository estadoRepository;
     private final LocalizacaoMapper mapper;
-
-    public CidadeService(CidadeRepository repository, EstadoRepository estadoRepository, LocalizacaoMapper mapper) {
-        this.repository = repository;
-        this.estadoRepository = estadoRepository;
-        this.mapper = mapper;
-    }
 
     public Page<CidadeResponse> findAll(Pageable pageable) {
         return repository.findAll(pageable).map(mapper::toResponse);

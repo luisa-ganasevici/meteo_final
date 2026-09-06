@@ -13,20 +13,16 @@ import br.com.fiap.meteo.domain.model.Estado;
 import br.com.fiap.meteo.domain.model.Pais;
 import br.com.fiap.meteo.domain.repository.EstadoRepository;
 import br.com.fiap.meteo.domain.repository.PaisRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class EstadoService {
 
     private final EstadoRepository repository;
     private final PaisRepository paisRepository;
     private final LocalizacaoMapper mapper;
-
-    public EstadoService(EstadoRepository repository, PaisRepository paisRepository, LocalizacaoMapper mapper) {
-        this.repository = repository;
-        this.paisRepository = paisRepository;
-        this.mapper = mapper;
-    }
 
     public Page<EstadoResponse> findAll(Pageable pageable) {
         return repository.findAll(pageable).map(mapper::toResponse);
