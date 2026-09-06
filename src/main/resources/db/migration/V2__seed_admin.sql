@@ -1,0 +1,2 @@
+INSERT INTO USUARIO (NOME, EMAIL, SENHA, TIPO_USUARIO, ATIVO, CRIADO_EM)
+VALUES ('Administrador', 'admin@meteo.com', '$2a$10$iYa0Exie923lav5RtaS5IumhxikxHl7aFhRiPYAkKPMYdkRoSAiEa', 'ADMIN', 'S', SYSTIMESTAMP);
